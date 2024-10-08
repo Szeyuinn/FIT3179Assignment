@@ -4,10 +4,13 @@ import pandas as pd
 file_path = '/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/cleaned_data.csv'
 data = pd.read_csv(file_path)
 
+# Filter the dataset to include only years greater than or equal to 1800
+data = data[data['YEAR'] >= 1800]
+
 # Group by 'COUNTRY' and 'YEAR' and count occurrences for each year
 country_year_occurrences = data.groupby(['COUNTRY', 'YEAR']).size().reset_index(name='OCCURRENCES')
 
-result_path = '/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/country_year_occurrences.csv'
 # Save the occurrences to a new CSV for use in Vega-Lite
+result_path = '/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/country_year_occurrences.csv'
 country_year_occurrences.to_csv(result_path, index=False)
 

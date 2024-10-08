@@ -7,6 +7,9 @@ data = pd.read_csv(file_path)
 # Filter the dataset to include only years greater than or equal to 1800
 data = data[data['YEAR'] >= 1800]
 
+# Convert country names to Title Case to match TopoJSON format
+data['COUNTRY'] = data['COUNTRY'].str.title()
+
 # Group by 'COUNTRY' and 'YEAR' and count occurrences for each year
 country_year_occurrences = data.groupby(['COUNTRY', 'YEAR']).size().reset_index(name='OCCURRENCES')
 

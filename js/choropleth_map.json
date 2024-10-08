@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Tsunami Occurrences Across the World (Filtered by Year)",
+  "title": "Tsunami Occurrences Across the World",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -17,37 +17,56 @@
           "format": {"type": "csv"}
         },
         "key": "COUNTRY",
-        "fields": ["OCCURRENCES", "YEAR"]
+        "fields": ["OCCURRENCES"]
       }
     },
     {
-      "filter": {"param": "yearRange"}
+      "filter": "datum.YEAR >= yearStart && datum.YEAR <= yearEnd"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "OCCURRENCES",
+        "as": "total_occurrences"
+      }],
+      "groupby": ["COUNTRY"]
     }
   ],
   "params": [
     {
-      "name": "yearRange",
-      "value": [1800, 2024],
+      "name": "yearStart",
+      "value": 1800,
       "bind": {
         "input": "range",
         "min": 1800,
         "max": 2024,
         "step": 1,
-        "name": "Year Range: "
+        "name": "Start Year"
+      }
+    },
+    {
+      "name": "yearEnd",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 1800,
+        "max": 2024,
+        "step": 1,
+        "name": "End Year"
       }
     }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "OCCURRENCES",
+      "field": "total_occurrences",
       "type": "quantitative",
       "scale": {"scheme": "blues"},
       "title": "Tsunami Occurrences"
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "OCCURRENCES", "type": "quantitative", "title": "Tsunami Occurrences"}
+      {"field": "total_occurrences", "type": "quantitative", "title": "Tsunami Occurrences"}
     ]
   }
 }

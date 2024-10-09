@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Debug: Raw Tsunami Occurrences Across The World",
+    "width": 800,
+    "height": 400,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/js/ne_110m.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.NAME_LONG",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/country_year_occurrences.csv",
+            "format": {"type": "csv"}
+          },
+          "key": "COUNTRY",
+          "fields": ["OCCURRENCES"]
+        }
+      },
+      {
+        "calculate": "datum.OCCURRENCES == null ? 0 : datum.OCCURRENCES",
+        "as": "OCCURRENCES"
+      },
+      {
+        "window": [
+          {"op": "sum", "field": "OCCURRENCES", "as": "total_occurrences"}
+        ],
+        "groupby": ["COUNTRY"]
+      },
+      {
+        "filter": "isFinite(datum.total_occurrences)"
+      }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "OCCURRENCES",
+        "type": "quantitative",
+        "scale": {"scheme": "blues"},
+        "title": "Raw Tsunami Occurrences"
+      },
+      "tooltip": [
+        {"field": "properties.NAME_LONG", "type": "nominal", "title": "Country"},
+        {"field": "OCCURRENCES", "type": "quantitative", "title": "Raw OCCURRENCES"}
+      ]
+    }
+  }
+  

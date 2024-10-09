@@ -29,6 +29,13 @@
       "groupby": ["COUNTRY"]
     },
     {
+      "filter": "isFinite(datum.total_occurrences)"
+    },
+    {
+      "calculate": "datum.total_occurrences",
+      "as": "debug"
+    },
+    {
       "lookup": "properties.NAME_LONG",
       "from": {
         "data": {
@@ -36,7 +43,8 @@
           "format": {"type": "csv"}
         },
         "key": "COUNTRY",
-        "fields": ["total_occurrences"]
+        "fields": ["total_occurrences"],
+        "default": 0
       }
     }
   ],

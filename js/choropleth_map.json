@@ -22,6 +22,21 @@
   ],
   "transform": [
     {
+      "lookup": "properties.NAME_LONG",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/country_year_occurrences.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "COUNTRY",
+        "fields": ["OCCURRENCES"]
+      }
+    },
+    {
+      "calculate": "datum.OCCURRENCES == null ? 0 : datum.OCCURRENCES",
+      "as": "OCCURRENCES"
+    },
+    {
       "filter": "datum.YEAR >= startYear && datum.YEAR <= endYear"
     },
     {
@@ -30,21 +45,6 @@
     },
     {
       "filter": "isFinite(datum.total_occurrences)"
-    },
-    {
-      "calculate": "datum.total_occurrences",
-      "as": "debug"
-    },
-    {
-      "lookup": "properties.NAME_LONG",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/country_year_occurrences.csv",
-          "format": {"type": "csv"}
-        },
-        "key": "COUNTRY",
-        "fields": ["total_occurrences"]
-      }
     }
   ],
   "mark": {"type": "geoshape"},
@@ -57,7 +57,8 @@
     },
     "tooltip": [
       {"field": "properties.NAME_LONG", "type": "nominal", "title": "Country"},
-      {"field": "total_occurrences", "type": "quantitative", "title": "Total Tsunami Occurrences"}
+      {"field": "total_occurrences", "type": "quantitative", "title": "Total Tsunami Occurrences"},
+      {"field": "OCCURRENCES", "type": "quantitative", "title": "Raw OCCURRENCES"}
     ]
   }
 }

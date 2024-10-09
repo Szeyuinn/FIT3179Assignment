@@ -58,7 +58,7 @@ missing_countries = all_countries - data_countries
 
 # Add missing countries with zero occurrences for each year in the range
 for country in missing_countries:
-    for year in range(1800, 2021):  # Assuming the range is from 1800 to 2020
+    for year in range(1800, 2024):  # Assuming the range is from 1800 to 2024
         missing_rows.append({
             'COUNTRY': country.title(),  # Match the title case format
             'YEAR': year,

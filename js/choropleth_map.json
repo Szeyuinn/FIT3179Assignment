@@ -12,12 +12,12 @@
     {
       "name": "startYear",
       "value": 1800,
-      "bind": {"input": "range", "min": 1800, "max": 2020, "step": 1, "name": "Start Year"}
+      "bind": {"input": "range", "min": 1800, "max": 2024, "step": 1, "name": "Start Year"}
     },
     {
       "name": "endYear",
-      "value": 2020,
-      "bind": {"input": "range", "min": 1800, "max": 2020, "step": 1, "name": "End Year"}
+      "value": 2024,
+      "bind": {"input": "range", "min": 1800, "max": 2024, "step": 1, "name": "End Year"}
     }
   ],
   "transform": [
@@ -43,8 +43,7 @@
           "format": {"type": "csv"}
         },
         "key": "COUNTRY",
-        "fields": ["total_occurrences"],
-        "default": 0
+        "fields": ["total_occurrences"]
       }
     }
   ],

@@ -1,6 +1,4 @@
 COUNTRY,YEAR,OCCURRENCES
- ,1868,1
- ,1953,1
 Albania,1833,3
 Albania,1851,2
 Albania,1866,4
@@ -27,18 +25,8 @@ Antarctica,2009,1
 Antarctica,2010,1
 Antarctica,2011,2
 Antarctica,2013,2
-Antigua And Barbuda,1802,2
-Antigua And Barbuda,1843,1
-Antigua And Barbuda,1867,3
-Antigua And Barbuda,1969,1
-Antigua And Barbuda,1999,1
-Antigua And Barbuda,2006,2
 Argentina,1964,1
 Argentina,2004,1
-Atlantic Ocean,1894,1
-Atlantic Ocean,1941,1
-Atlantic Ocean,1975,1
-Atlantic Ocean,2008,1
 Australia,1836,1
 Australia,1858,1
 Australia,1859,2
@@ -78,30 +66,14 @@ Australia,2011,6
 Australia,2012,3
 Australia,2013,4
 Australia,2014,1
-Azores (Portugal),1855,1
-Azores (Portugal),1899,1
-Azores (Portugal),1926,1
-Azores (Portugal),1929,1
-Azores (Portugal),1931,2
-Azores (Portugal),1975,1
-Azores (Portugal),1980,1
 Bangladesh,1842,2
 Bangladesh,1874,2
 Bangladesh,1988,1
 Bangladesh,2008,1
 Bangladesh,2012,1
-Barbados,1902,1
-Barbados,1969,1
 Benin,1905,1
-Bermuda (Uk Territory),1929,1
-Bermuda (Uk Territory),1946,2
-Bermuda (Uk Territory),1960,1
-Bermuda (Uk Territory),2004,1
-Bermuda (Uk Territory),2013,1
 Brazil,2004,2
 Brazil,2011,1
-British Virgin Islands (Uk Territory),1867,3
-British Virgin Islands (Uk Territory),1918,1
 Bulgaria,1901,1
 Bulgaria,2007,1
 Canada,1848,5
@@ -277,24 +249,6 @@ Colombia,1960,2
 Colombia,1961,1
 Colombia,1964,3
 Colombia,1979,13
-Congo,1820,1
-Congo,1938,2
-Cook Islands,1865,1
-Cook Islands,1896,1
-Cook Islands,1899,2
-Cook Islands,1909,2
-Cook Islands,1926,1
-Cook Islands,1946,1
-Cook Islands,1986,1
-Cook Islands,1992,1
-Cook Islands,1995,1
-Cook Islands,2001,1
-Cook Islands,2006,2
-Cook Islands,2007,1
-Cook Islands,2009,3
-Cook Islands,2010,4
-Cook Islands,2011,3
-Cook Islands,2012,1
 Costa Rica,1821,2
 Costa Rica,1822,2
 Costa Rica,1854,2
@@ -330,18 +284,11 @@ Cuba,1932,2
 Cuba,1939,2
 Cuba,1946,5
 Cyprus,1953,1
-Dominica,1867,2
-Dominica,1874,1
-Dominica,1969,1
-Dominica,2004,1
 Dominican Republic,1842,1
 Dominican Republic,1918,1
 Dominican Republic,1946,8
 Dominican Republic,1953,2
 Dominican Republic,2010,2
-East China Sea,1867,1
-East Timor,1857,2
-East Timor,1995,2
 Ecuador,1827,1
 Ecuador,1877,1
 Ecuador,1882,1
@@ -435,36 +382,6 @@ France,1956,2
 France,1979,7
 France,2003,1
 France,2004,3
-French Polynesia,1819,1
-French Polynesia,1837,2
-French Polynesia,1848,2
-French Polynesia,1856,1
-French Polynesia,1868,2
-French Polynesia,1906,1
-French Polynesia,1909,2
-French Polynesia,1946,58
-French Polynesia,1957,1
-French Polynesia,1960,27
-French Polynesia,1963,2
-French Polynesia,1977,2
-French Polynesia,1979,1
-French Polynesia,1982,1
-French Polynesia,1985,4
-French Polynesia,1986,3
-French Polynesia,1992,1
-French Polynesia,1994,1
-French Polynesia,1995,10
-French Polynesia,1999,11
-French Polynesia,2004,1
-French Polynesia,2006,4
-French Polynesia,2007,2
-French Polynesia,2009,7
-French Polynesia,2010,4
-French Polynesia,2011,10
-French Polynesia,2012,6
-French Polynesia,2013,2
-French Polynesia,2014,4
-French Southern And Atlantic Territories,2004,2
 Georgia,1905,1
 Georgia,1939,2
 Ghana,1862,1
@@ -534,18 +451,6 @@ Greece,2000,2
 Greenland,1954,2
 Greenland,2000,5
 Greenland,2012,1
-Grenada,1867,7
-Grenada,1902,1
-Guadeloupe (French Territory),1824,1
-Guadeloupe (French Territory),1843,3
-Guadeloupe (French Territory),1867,6
-Guadeloupe (French Territory),1969,1
-Guadeloupe (French Territory),1985,2
-Guadeloupe (French Territory),1999,1
-Guadeloupe (French Territory),2003,4
-Guadeloupe (French Territory),2004,7
-Guadeloupe (French Territory),2005,3
-Guadeloupe (French Territory),2006,1
 Guatemala,1902,3
 Guatemala,1915,1
 Guatemala,1950,2
@@ -904,74 +809,12 @@ Kenya,1930,2
 Kenya,2004,6
 Kenya,2005,1
 Kenya,2007,1
-Kermadec Islands,2007,1
-Kiribati,1899,1
-Kiribati,1952,2
-Kiribati,1957,2
-Kiribati,1960,2
-Kiribati,1963,1
-Kiribati,1964,2
-Kiribati,1966,2
-Kiribati,2001,1
-Kiribati,2003,1
-Kiribati,2006,3
-Kiribati,2009,2
-Kiribati,2011,3
-Kiribati,2012,1
-Kiribati,2013,2
 Lebanon,1822,1
 Libya,1908,1
 Madagascar,2004,55
 Malaysia,1816,1
 Malaysia,1837,1
 Malaysia,2004,21
-Maldives,2004,169
-Maldives,2005,3
-Maldives,2006,1
-Maldives,2007,3
-Maldives,2010,3
-Maldives,2012,4
-Malta,1867,1
-Malta,1908,8
-"Marshall Islands, Rep. Of",1899,1
-"Marshall Islands, Rep. Of",1906,1
-"Marshall Islands, Rep. Of",1952,3
-"Marshall Islands, Rep. Of",1957,2
-"Marshall Islands, Rep. Of",1958,1
-"Marshall Islands, Rep. Of",1960,2
-"Marshall Islands, Rep. Of",1963,2
-"Marshall Islands, Rep. Of",1964,2
-"Marshall Islands, Rep. Of",1965,1
-"Marshall Islands, Rep. Of",1968,1
-"Marshall Islands, Rep. Of",1969,1
-"Marshall Islands, Rep. Of",1971,2
-"Marshall Islands, Rep. Of",1975,3
-"Marshall Islands, Rep. Of",1993,1
-"Marshall Islands, Rep. Of",1995,1
-"Marshall Islands, Rep. Of",1996,1
-"Marshall Islands, Rep. Of",1999,1
-"Marshall Islands, Rep. Of",2001,1
-"Marshall Islands, Rep. Of",2006,2
-"Marshall Islands, Rep. Of",2007,4
-"Marshall Islands, Rep. Of",2009,2
-"Marshall Islands, Rep. Of",2011,4
-"Marshall Islands, Rep. Of",2013,2
-Martinique (French Territory),1823,2
-Martinique (French Territory),1824,2
-Martinique (French Territory),1837,1
-Martinique (French Territory),1867,1
-Martinique (French Territory),1902,11
-Martinique (French Territory),1929,1
-Martinique (French Territory),2007,1
-Mauritius,1883,4
-Mauritius,1907,1
-Mauritius,1960,1
-Mauritius,2004,24
-Mauritius,2005,2
-Mauritius,2006,1
-Mauritius,2007,1
-Mauritius,2010,2
-Mauritius,2012,2
 Mexico,1820,2
 Mexico,1833,2
 Mexico,1834,2
@@ -1033,51 +876,11 @@ Mexico,2011,5
 Mexico,2012,6
 Mexico,2013,1
 Mexico,2014,5
-"Micronesia, Fed. States Of",1837,3
-"Micronesia, Fed. States Of",1849,2
-"Micronesia, Fed. States Of",1852,1
-"Micronesia, Fed. States Of",1899,1
-"Micronesia, Fed. States Of",1912,3
-"Micronesia, Fed. States Of",1925,2
-"Micronesia, Fed. States Of",1952,4
-"Micronesia, Fed. States Of",1956,1
-"Micronesia, Fed. States Of",1957,1
-"Micronesia, Fed. States Of",1960,1
-"Micronesia, Fed. States Of",1963,2
-"Micronesia, Fed. States Of",1964,1
-"Micronesia, Fed. States Of",1968,1
-"Micronesia, Fed. States Of",1971,2
-"Micronesia, Fed. States Of",1972,2
-"Micronesia, Fed. States Of",1975,3
-"Micronesia, Fed. States Of",1986,1
-"Micronesia, Fed. States Of",1990,1
-"Micronesia, Fed. States Of",1998,2
-"Micronesia, Fed. States Of",2002,1
-"Micronesia, Fed. States Of",2006,1
-"Micronesia, Fed. States Of",2007,1
-"Micronesia, Fed. States Of",2009,2
-"Micronesia, Fed. States Of",2011,2
-"Micronesia, Fed. States Of",2012,2
-"Micronesia, Fed. States Of",2013,2
-Montserrat,1824,1
-Montserrat,1997,2
-Montserrat,1999,2
-Montserrat,2003,2
-Montserrat,2006,2
 Morocco,1954,1
 Morocco,1960,2
 Morocco,1969,1
 Morocco,1975,1
 Mozambique,2004,1
-Myanmar (Burma),1834,1
-Myanmar (Burma),1930,2
-Myanmar (Burma),2004,22
-Myanmar (Burma),2012,1
-Nauru,1936,2
-Nauru,1999,1
-Nauru,2006,1
-Nauru,2009,1
-Nauru,2011,1
 Nepal,1934,1
 New Caledonia,1875,3
 New Caledonia,1901,1
@@ -1169,14 +972,6 @@ Nicaragua,1951,2
 Nicaragua,1952,2
 Nicaragua,1964,1
 Nicaragua,1992,61
-Niue,1995,1
-Niue,1999,1
-Niue,2006,2
-Niue,2009,1
-North Korea,1940,2
-North Korea,1993,1
-Northwest Pacific Ocean,1850,1
-Northwest Pacific Ocean,1854,1
 Norway,1810,1
 Norway,1819,2
 Norway,1867,1
@@ -1206,22 +1001,11 @@ Oman,2004,46
 Oman,2005,1
 Oman,2007,2
 Oman,2013,1
-Pacific Ocean,1958,1
 Pakistan,1883,1
 Pakistan,1935,2
 Pakistan,1945,6
 Pakistan,1974,1
 Pakistan,2013,1
-Palau,1900,1
-Palau,1952,2
-Palau,1970,1
-Palau,1971,3
-Palau,1972,1
-Palau,1998,1
-Palau,2002,1
-Palau,2009,1
-Palau,2011,1
-Palau,2012,1
 Panama,1873,3
 Panama,1882,4
 Panama,1883,1
@@ -1423,137 +1207,6 @@ Portugal,1931,1
 Portugal,1939,1
 Portugal,1969,2
 Portugal,1980,1
-Reunion (French Territory),2004,16
-Reunion (French Territory),2012,1
-Russia,1827,3
-Russia,1841,4
-Russia,1843,1
-Russia,1849,3
-Russia,1853,2
-Russia,1854,2
-Russia,1893,3
-Russia,1894,3
-Russia,1904,3
-Russia,1905,2
-Russia,1917,1
-Russia,1918,5
-Russia,1923,10
-Russia,1924,2
-Russia,1927,2
-Russia,1933,4
-Russia,1936,2
-Russia,1937,2
-Russia,1939,1
-Russia,1940,6
-Russia,1946,1
-Russia,1949,1
-Russia,1952,45
-Russia,1953,2
-Russia,1956,1
-Russia,1958,9
-Russia,1959,2
-Russia,1960,27
-Russia,1961,1
-Russia,1962,1
-Russia,1963,17
-Russia,1964,16
-Russia,1965,5
-Russia,1966,1
-Russia,1967,1
-Russia,1968,12
-Russia,1969,7
-Russia,1970,3
-Russia,1971,14
-Russia,1973,13
-Russia,1974,1
-Russia,1975,3
-Russia,1976,5
-Russia,1978,25
-Russia,1980,1
-Russia,1983,7
-Russia,1984,4
-Russia,1985,1
-Russia,1986,2
-Russia,1991,6
-Russia,1993,14
-Russia,1994,32
-Russia,1995,4
-Russia,1996,1
-Russia,1997,8
-Russia,2001,1
-Russia,2004,1
-Russia,2006,121
-Russia,2007,6
-Russia,2009,8
-Russia,2010,9
-Russia,2011,20
-Russia,2013,4
-Saba (Dutch Territory),1867,1
-Saint Barthelemy (French Territory),1867,2
-Saint Kitts And Nevis,1802,1
-Saint Kitts And Nevis,1831,1
-Saint Kitts And Nevis,1867,2
-Saint Lucia,1867,4
-Saint Lucia,1902,1
-Saint Martin (French And Dutch Territories),1867,1
-Saint Pierre And Miquelon,1929,3
-Saint Vincent And The Grenadines,1867,5
-Saint Vincent And The Grenadines,1868,1
-Saint Vincent And The Grenadines,1902,1
-Samoa,1837,1
-Samoa,1849,1
-Samoa,1868,5
-Samoa,1877,1
-Samoa,1883,1
-Samoa,1896,1
-Samoa,1905,1
-Samoa,1906,2
-Samoa,1907,13
-Samoa,1917,6
-Samoa,1918,1
-Samoa,1919,1
-Samoa,1920,1
-Samoa,1922,1
-Samoa,1923,1
-Samoa,1928,1
-Samoa,1932,1
-Samoa,1933,1
-Samoa,1944,1
-Samoa,1946,1
-Samoa,1952,1
-Samoa,1957,2
-Samoa,1960,1
-Samoa,1975,3
-Samoa,1976,1
-Samoa,1977,5
-Samoa,1981,4
-Samoa,1985,1
-Samoa,1986,1
-Samoa,1987,1
-Samoa,1995,3
-Samoa,1999,1
-Samoa,2001,1
-Samoa,2006,3
-Samoa,2007,1
-Samoa,2009,170
-Samoa,2010,1
-Samoa,2011,1
-Samoa,2012,1
-Samoa,2013,2
-Samoa,2014,2
-Serbia And Montenegro,1978,1
-Serbia And Montenegro,1979,3
-Seychelles,1883,1
-Seychelles,1945,1
-Seychelles,1983,1
-Seychelles,2004,1
-Seychelles,2005,1
-Seychelles,2007,1
-Seychelles,2010,1
-Seychelles,2012,1
-Singapore,1837,1
-Singapore,1892,1
-Sint Eustatius (Dutch Territory),1867,1
 Solomon Islands,1899,1
 Solomon Islands,1901,1
 Solomon Islands,1926,3
@@ -1594,10 +1247,6 @@ South Africa,1960,2
 South Africa,1981,10
 South Africa,2004,8
 South Africa,2008,1
-South Korea,1926,1
-South Korea,1964,1
-South Korea,1983,3
-South Korea,1993,38
 Spain,1804,2
 Spain,1856,1
 Spain,1930,1
@@ -1647,30 +1296,6 @@ Thailand,2012,3
 Togo,1906,1
 Togo,1911,2
 Togo,1933,2
-Tonga,1837,1
-Tonga,1853,2
-Tonga,1865,2
-Tonga,1877,1
-Tonga,1907,1
-Tonga,1908,1
-Tonga,1917,2
-Tonga,1919,4
-Tonga,1928,2
-Tonga,1948,1
-Tonga,1963,1
-Tonga,1977,2
-Tonga,1987,1
-Tonga,1995,2
-Tonga,1997,1
-Tonga,2001,1
-Tonga,2004,1
-Tonga,2006,3
-Tonga,2007,2
-Tonga,2009,80
-Tonga,2010,2
-Tonga,2011,1
-Tonga,2013,1
-Tonga,2014,2
 Trinidad And Tobago,1825,1
 Trinidad And Tobago,1831,2
 Trinidad And Tobago,1911,2
@@ -1695,264 +1320,164 @@ Turkey,1963,2
 Turkey,1968,2
 Turkey,1999,27
 Turkmenistan,1895,2
-Tuvalu,1899,1
-Tuvalu,1997,1
-Tuvalu,1999,1
-Tuvalu,2006,2
-Tuvalu,2009,2
-Tuvalu,2012,2
-Ua,2014,1
-Uk,1858,2
-Uk,1883,1
-Uk,1926,1
-Uk,1931,1
-Uk,1941,1
-Uk,1950,3
-Uk,1960,1
-Uk,1975,1
-Uk,2004,2
-Uk,2010,1
-Uk,2011,4
-Uk Territory,1821,2
-Uk Territory,1883,1
-Uk Territory,1946,1
-Uk Territory,1960,1
-Uk Territory,1983,2
-Uk Territory,2004,4
-Uk Territory,2007,1
-Uk Territory,2010,1
-Uk Territory,2013,1
 Ukraine,1869,1
 Ukraine,1908,1
 Ukraine,1919,1
 Ukraine,1927,3
 Ukraine,1939,5
+United States,1806,2
+United States,1811,5
+United States,1812,8
+United States,1813,1
+United States,1817,2
+United States,1819,4
+United States,1820,2
+United States,1821,3
+United States,1823,2
+United States,1825,2
+United States,1826,2
+United States,1827,2
+United States,1837,5
+United States,1840,3
+United States,1841,4
+United States,1845,1
+United States,1851,4
+United States,1852,1
+United States,1853,3
+United States,1854,17
+United States,1855,6
+United States,1856,6
+United States,1859,1
+United States,1860,2
+United States,1861,1
+United States,1862,3
+United States,1865,6
+United States,1866,3
+United States,1868,49
+United States,1869,11
+United States,1871,4
+United States,1872,18
+United States,1873,2
+United States,1874,2
+United States,1875,1
+United States,1877,20
+United States,1878,21
+United States,1879,4
+United States,1880,6
+United States,1883,8
+United States,1884,20
+United States,1885,3
+United States,1886,4
+United States,1887,3
+United States,1891,4
+United States,1894,2
+United States,1895,8
+United States,1896,22
+United States,1897,1
+United States,1898,2
+United States,1899,19
+United States,1900,2
+United States,1901,12
+United States,1902,1
+United States,1903,7
+United States,1904,5
+United States,1905,5
+United States,1906,21
+United States,1907,2
+United States,1908,4
+United States,1909,1
+United States,1910,4
+United States,1911,2
+United States,1912,3
+United States,1913,4
+United States,1914,1
+United States,1917,7
+United States,1918,12
+United States,1919,10
+United States,1921,1
+United States,1922,7
+United States,1923,18
+United States,1924,4
+United States,1925,4
+United States,1926,6
+United States,1927,24
+United States,1928,5
+United States,1929,18
+United States,1930,4
+United States,1931,12
+United States,1932,10
+United States,1933,21
+United States,1934,10
+United States,1935,2
+United States,1936,2
+United States,1937,1
+United States,1938,13
+United States,1941,4
+United States,1943,5
+United States,1944,14
+United States,1946,496
+United States,1948,4
+United States,1949,19
+United States,1950,7
+United States,1951,9
+United States,1952,153
+United States,1953,9
+United States,1954,6
+United States,1955,3
+United States,1956,8
+United States,1957,257
+United States,1958,34
+United States,1959,8
+United States,1960,371
+United States,1962,2
+United States,1963,21
+United States,1964,287
+United States,1965,24
+United States,1966,23
+United States,1968,28
+United States,1969,14
+United States,1970,1
+United States,1971,27
+United States,1972,4
+United States,1973,10
+United States,1974,5
+United States,1975,40
+United States,1976,2
+United States,1977,9
+United States,1978,1
+United States,1979,7
+United States,1980,7
+United States,1982,2
+United States,1985,14
+United States,1986,24
+United States,1987,14
+United States,1988,10
+United States,1989,11
+United States,1990,2
+United States,1991,3
+United States,1992,22
+United States,1993,12
+United States,1994,32
+United States,1995,42
+United States,1996,53
+United States,1997,10
+United States,1999,6
+United States,2000,2
+United States,2001,26
+United States,2003,32
+United States,2004,24
+United States,2005,4
+United States,2006,87
+United States,2007,46
+United States,2008,9
+United States,2009,66
+United States,2010,70
+United States,2011,444
+United States,2012,65
+United States,2013,66
+United States,2014,53
 Uruguay,1884,2
 Uruguay,1888,1
-Usa,1806,2
-Usa,1811,5
-Usa,1812,8
-Usa,1813,1
-Usa,1817,2
-Usa,1819,4
-Usa,1820,2
-Usa,1821,3
-Usa,1823,2
-Usa,1825,2
-Usa,1826,2
-Usa,1827,2
-Usa,1837,5
-Usa,1840,3
-Usa,1841,4
-Usa,1845,1
-Usa,1851,4
-Usa,1852,1
-Usa,1853,3
-Usa,1854,17
-Usa,1855,6
-Usa,1856,6
-Usa,1859,1
-Usa,1860,2
-Usa,1861,1
-Usa,1862,3
-Usa,1865,6
-Usa,1866,3
-Usa,1868,49
-Usa,1869,11
-Usa,1871,4
-Usa,1872,18
-Usa,1873,2
-Usa,1874,2
-Usa,1875,1
-Usa,1877,20
-Usa,1878,21
-Usa,1879,4
-Usa,1880,6
-Usa,1883,8
-Usa,1884,20
-Usa,1885,3
-Usa,1886,4
-Usa,1887,3
-Usa,1891,4
-Usa,1894,2
-Usa,1895,8
-Usa,1896,22
-Usa,1897,1
-Usa,1898,2
-Usa,1899,19
-Usa,1900,2
-Usa,1901,12
-Usa,1902,1
-Usa,1903,7
-Usa,1904,5
-Usa,1905,5
-Usa,1906,21
-Usa,1907,2
-Usa,1908,4
-Usa,1909,1
-Usa,1910,4
-Usa,1911,2
-Usa,1912,3
-Usa,1913,4
-Usa,1914,1
-Usa,1917,7
-Usa,1918,12
-Usa,1919,10
-Usa,1921,1
-Usa,1922,7
-Usa,1923,18
-Usa,1924,4
-Usa,1925,4
-Usa,1926,6
-Usa,1927,24
-Usa,1928,5
-Usa,1929,18
-Usa,1930,4
-Usa,1931,12
-Usa,1932,10
-Usa,1933,21
-Usa,1934,10
-Usa,1935,2
-Usa,1936,2
-Usa,1937,1
-Usa,1938,13
-Usa,1941,4
-Usa,1943,5
-Usa,1944,14
-Usa,1946,496
-Usa,1948,4
-Usa,1949,19
-Usa,1950,7
-Usa,1951,9
-Usa,1952,153
-Usa,1953,9
-Usa,1954,6
-Usa,1955,3
-Usa,1956,8
-Usa,1957,257
-Usa,1958,34
-Usa,1959,8
-Usa,1960,371
-Usa,1962,2
-Usa,1963,21
-Usa,1964,287
-Usa,1965,24
-Usa,1966,23
-Usa,1968,28
-Usa,1969,14
-Usa,1970,1
-Usa,1971,27
-Usa,1972,4
-Usa,1973,10
-Usa,1974,5
-Usa,1975,40
-Usa,1976,2
-Usa,1977,9
-Usa,1978,1
-Usa,1979,7
-Usa,1980,7
-Usa,1982,2
-Usa,1985,14
-Usa,1986,24
-Usa,1987,14
-Usa,1988,10
-Usa,1989,11
-Usa,1990,2
-Usa,1991,3
-Usa,1992,22
-Usa,1993,12
-Usa,1994,32
-Usa,1995,42
-Usa,1996,53
-Usa,1997,10
-Usa,1999,6
-Usa,2000,2
-Usa,2001,26
-Usa,2003,32
-Usa,2004,24
-Usa,2005,4
-Usa,2006,87
-Usa,2007,46
-Usa,2008,9
-Usa,2009,66
-Usa,2010,70
-Usa,2011,444
-Usa,2012,65
-Usa,2013,66
-Usa,2014,53
-Usa Territory,1809,2
-Usa Territory,1819,2
-Usa Territory,1825,2
-Usa Territory,1837,2
-Usa Territory,1842,1
-Usa Territory,1849,6
-Usa Territory,1866,2
-Usa Territory,1867,23
-Usa Territory,1868,5
-Usa Territory,1874,2
-Usa Territory,1883,1
-Usa Territory,1892,2
-Usa Territory,1903,2
-Usa Territory,1909,2
-Usa Territory,1915,2
-Usa Territory,1917,2
-Usa Territory,1918,20
-Usa Territory,1919,1
-Usa Territory,1920,2
-Usa Territory,1922,1
-Usa Territory,1933,1
-Usa Territory,1946,5
-Usa Territory,1948,1
-Usa Territory,1952,16
-Usa Territory,1953,2
-Usa Territory,1956,3
-Usa Territory,1957,8
-Usa Territory,1958,4
-Usa Territory,1959,1
-Usa Territory,1960,7
-Usa Territory,1963,9
-Usa Territory,1964,6
-Usa Territory,1965,7
-Usa Territory,1966,7
-Usa Territory,1967,6
-Usa Territory,1968,10
-Usa Territory,1969,6
-Usa Territory,1971,7
-Usa Territory,1972,1
-Usa Territory,1973,2
-Usa Territory,1974,3
-Usa Territory,1975,6
-Usa Territory,1976,1
-Usa Territory,1977,3
-Usa Territory,1978,2
-Usa Territory,1979,2
-Usa Territory,1981,1
-Usa Territory,1982,1
-Usa Territory,1983,1
-Usa Territory,1985,1
-Usa Territory,1986,5
-Usa Territory,1987,1
-Usa Territory,1989,2
-Usa Territory,1990,5
-Usa Territory,1991,2
-Usa Territory,1993,8
-Usa Territory,1994,3
-Usa Territory,1995,8
-Usa Territory,1996,3
-Usa Territory,1997,1
-Usa Territory,1999,2
-Usa Territory,2001,4
-Usa Territory,2002,1
-Usa Territory,2003,1
-Usa Territory,2004,6
-Usa Territory,2006,6
-Usa Territory,2007,8
-Usa Territory,2009,232
-Usa Territory,2010,15
-Usa Territory,2011,10
-Usa Territory,2012,8
-Usa Territory,2013,7
-Usa Territory,2014,6
 Vanuatu,1849,1
 Vanuatu,1863,2
 Vanuatu,1875,3
@@ -2006,6 +1531,5 @@ Venezuela,1979,2
 Venezuela,1997,1
 Vietnam,1921,1
 Vietnam,2006,1
-Wallis And Futuna (French Territory),2009,42
 Yemen,1883,1
 Yemen,2004,19

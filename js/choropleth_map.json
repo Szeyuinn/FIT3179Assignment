@@ -29,7 +29,7 @@
       "groupby": ["COUNTRY"]
     },
     {
-      "lookup": "properties.name",
+      "lookup": "properties.NAME_LONG",
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/country_year_occurrences.csv",
@@ -49,7 +49,7 @@
       "title": "Total Tsunami Occurrences"
     },
     "tooltip": [
-      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "properties.NAME_LONG", "type": "nominal", "title": "Country"},
       {"field": "total_occurrences", "type": "quantitative", "title": "Total Tsunami Occurrences"}
     ]
   }

@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "datasets": {
+      "top10": {
+        "url": "path/to/filtered_top10_data.csv"
+      },
+      "allCountries": {
+        "url": "path/to/full_dataset.csv"
+      }
+    },
+    "params": [
+      {
+        "name": "selected_country",
+        "value": null,
+        "bind": {
+          "input": "select",
+          "options": [
+            null, "CHINA", "CANADA", "ECUADOR", "FIJI", "PHILIPPINES", "GERMANY"
+          ],
+          "name": "Select a country: "
+        }
+      }
+    ],
+    "vconcat": [
+      {
+        "data": {"name": "top10"},
+        "mark": "boxplot",
+        "transform": [
+          {"filter": "datum.RUNUP_HT > 0"}
+        ],
+        "encoding": {
+          "x": {
+            "field": "COUNTRY",
+            "type": "nominal",
+            "title": "Country",
+            "sort": {"field": "RUNUP_HT", "op": "max", "order": "descending"}
+          },
+          "y": {
+            "field": "RUNUP_HT",
+            "type": "quantitative",
+            "title": "Run-up Height (feet)"
+          },
+          "color": {
+            "field": "COUNTRY",
+            "type": "nominal",
+            "legend": {"title": "Country"}
+          }
+        }
+      },
+      {
+        "data": {"name": "allCountries"},
+        "mark": "boxplot",
+        "transform": [
+          {"filter": "datum.RUNUP_HT > 0"},
+          {
+            "filter": "selected_country == null || datum.COUNTRY == selected_country"
+          }
+        ],
+        "encoding": {
+          "x": {
+            "field": "COUNTRY",
+            "type": "nominal",
+            "title": "Additional Country",
+            "sort": null
+          },
+          "y": {
+            "field": "RUNUP_HT",
+            "type": "quantitative",
+            "title": "Run-up Height (feet)"
+          },
+          "color": {
+            "field": "COUNTRY",
+            "type": "nominal",
+            "legend": {"title": "Country"}
+          }
+        }
+      }
+    ],
+    "config": {
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    }
+  }
+  

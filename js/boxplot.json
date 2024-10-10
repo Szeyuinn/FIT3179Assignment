@@ -1,85 +1,74 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "datasets": {
-      "top10": {
-        "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/runup_top10.csv?raw=true",
-        "format": {"type": "csv"}
-      },
-      "allCountries": {
-        "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/cleaned_data.csv?raw=true",
-        "format": {"type": "csv"}
-      }
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/merged_runup_data.csv"
     },
-    "params": [
-      {
-        "name": "selected_country",
-        "value": null,
-        "bind": {
-          "input": "select",
-          "options": [
-            null, "CHINA", "CANADA", "ECUADOR", "FIJI", "PHILIPPINES", "GERMANY"
-          ],
-          "name": "Select a country: "
-        }
-      }
-    ],
     "vconcat": [
       {
-        "data": {"name": "top10"},
-        "mark": "boxplot",
+        "title": "Run-up Heights by Top 10 Countries",
+        "mark": {
+          "type": "boxplot",
+          "extent": "min-max"
+        },
         "transform": [
-          {"filter": "datum.RUNUP_HT > 0"}
+          {"filter": "datum.isTop10 == true"},
+          {"filter": "isValid(datum.RUNUP_HT) && isFinite(datum.RUNUP_HT)"}
         ],
         "encoding": {
           "x": {
             "field": "COUNTRY",
             "type": "nominal",
             "title": "Country",
-            "sort": {"field": "RUNUP_HT", "op": "max", "order": "descending"}
+            "axis": {"labelAngle": -45}
           },
           "y": {
             "field": "RUNUP_HT",
             "type": "quantitative",
             "title": "Run-up Height (feet)"
-          },
-          "color": {
-            "field": "COUNTRY",
-            "type": "nominal",
-            "legend": {"title": "Country"}
           }
         }
       },
       {
-        "data": {"name": "allCountries"},
-        "mark": "boxplot",
+        "title": "Run-up Heights by Additional Countries",
+        "mark": {
+          "type": "boxplot",
+          "extent": "min-max"
+        },
         "transform": [
-          {"filter": "datum.RUNUP_HT > 0"},
           {
-            "filter": "selected_country == null || datum.COUNTRY == selected_country"
-          }
+            "filter": "(datum.isTop10 == false) && (indexof([additional_country], datum.COUNTRY) >= 0)"
+          },
+          {"filter": "isValid(datum.RUNUP_HT) && isFinite(datum.RUNUP_HT)"}
         ],
         "encoding": {
           "x": {
             "field": "COUNTRY",
             "type": "nominal",
             "title": "Additional Country",
-            "sort": null
+            "axis": {"labelAngle": -45}
           },
           "y": {
             "field": "RUNUP_HT",
             "type": "quantitative",
             "title": "Run-up Height (feet)"
-          },
-          "color": {
-            "field": "COUNTRY",
-            "type": "nominal",
-            "legend": {"title": "Country"}
           }
         }
       }
     ],
+    "params": [
+      {
+        "name": "additional_country",
+        "value": null,
+        "bind": {
+          "input": "select",
+          "options": ["Select", "China", "Canada", "Mexico", "France", "Italy", "Germany", "Brazil"],  
+          "name": "Select Additional Country: "
+        }
+      }
+    ],
     "config": {
-      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
     }
   }
   

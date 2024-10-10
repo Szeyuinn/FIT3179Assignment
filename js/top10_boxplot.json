@@ -1,0 +1,31 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/runup_top10.csv"
+    },
+    "mark": {
+      "type": "boxplot",
+      "extent": "min-max"
+    },
+    "encoding": {
+      "x": {
+        "field": "COUNTRY",
+        "type": "nominal",
+        "title": "Country"
+      },
+      "y": {
+        "field": "RUNUP_HT",
+        "type": "quantitative",
+        "title": "Run-up Height (feet)"
+      },
+      "color": {
+        "field": "COUNTRY",
+        "type": "nominal",
+        "legend": {"title": "Country"}
+      }
+    },
+    "config": {
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    }
+  }
+  

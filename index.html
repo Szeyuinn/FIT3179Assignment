@@ -58,13 +58,13 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      var spec6 = "js/word_cloud.json";
-      vegaEmbed('#word_cloud', spec6).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+      // var spec6 = "js/word_cloud.json";
+      // vegaEmbed('#word_cloud', spec6).then(function(result) {
+      //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      // }).catch(console.error);
 
       // word-cloud.js
-      d3.json('/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/cleaned_causes.json').then(function(data) {
+      d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
           const width = 800;
           const height = 400;
 
@@ -85,9 +85,9 @@
 
           // Draw the word cloud
           function draw(words) {
-              d3.select("#word-cloud").selectAll("*").remove(); // Clear previous content
+              d3.select("#word_cloud").selectAll("*").remove(); // Clear previous content
 
-              d3.select("#word-cloud")
+              d3.select("#word_cloud")
                   .append("g")
                   .attr("transform", `translate(${width / 2}, ${height / 2})`)
                   .selectAll("text")

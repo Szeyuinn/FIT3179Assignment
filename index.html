@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsunami Of The World</title>
+    <title>Tsunami Impacts Visualization</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -12,134 +12,139 @@
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="styles.css" media="all">
-
-
 </head>
 <body>
-    <!-- Choropleth Map Container -->
-    <div id="choropleth_map"></div>
+    <!-- Main Container -->
+    <div class="main-container">
 
-    <!-- <div id="boxplot"></div> -->
+        <!-- Page Title and Description -->
+        <div class="page-header">
+            <h1>Tsunami Impacts Around the World</h1>
+            <p>This visualization compares the impact of tsunamis across different countries, using various data representations like a choropleth map, boxplots, and word clouds to highlight the top-affected regions.</p>
+        </div>
 
-    <div id="top10_boxplot"></div>
+        <!-- Choropleth Map Section -->
+        <div class="visual-section">
+            <h2>Tsunami Impact by Country (Choropleth Map)</h2>
+            <p>This map shows the severity of tsunami impacts by country, with darker colors representing higher impacts in terms of damage and fatalities.</p>
+            <div id="choropleth_map" class="chart-container choropleth"></div>
+        </div>
 
-    <div id="selected_country_boxplot"></div>
+        <!-- Boxplots Section for Top 10 vs Selected Country -->
+        <div class="visual-section">
+            <h2>Comparison of Tsunami Runup Heights</h2>
+            <p>The following boxplots compare the top 10 tsunami-affected countries with the user-selected country, based on runup heights recorded during tsunamis.</p>
+            <div class="combined-boxplot">
+                <div id="top10_boxplot" class="chart-container top10"></div>
+                <div id="selected_country_boxplot" class="chart-container selected-country"></div>
+            </div>
+        </div>
 
-    <div id="horizontal_bar"></div>
+        <!-- Horizontal Bar Chart Section -->
+        <div class="visual-section">
+            <h2>Top Causes of Tsunamis (Horizontal Bar Chart)</h2>
+            <p>This bar chart shows the most common causes of tsunamis around the world, highlighting the most frequent geological events leading to these disasters.</p>
+            <div id="horizontal_bar" class="chart-container horizontal-bar"></div>
+        </div>
 
-    <div id="word_cloud"></div>
+        <!-- Word Cloud Section -->
+        <div class="visual-section">
+            <h2>Tsunami Causes Word Cloud</h2>
+            <p>This word cloud provides a visual representation of the most common causes of tsunamis, with larger words representing more frequent causes.</p>
+            <div id="word_cloud" class="chart-container word-cloud"></div>
+        </div>
 
-    <svg id="word-cloud" width="800" height="400"></svg>  
+    </div>
 
     <script type="text/javascript">
+        var spec1 = "js/choropleth_map.json";
+        vegaEmbed('#choropleth_map', spec1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
 
-      var spec1 = "js/choropleth_map.json";
-      vegaEmbed('#choropleth_map', spec1).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+        var spec3 = "js/top10_boxplot.json";
+        vegaEmbed('#top10_boxplot', spec3).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
 
-      // var spec2 = "js/boxplot.json";
-      // vegaEmbed('#boxplot', spec2).then(function(result) {
-      //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      // }).catch(console.error);
+        var spec4 = "js/selected_country_boxplot.json";
+        vegaEmbed('#selected_country_boxplot', spec4).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
 
-      var spec3 = "js/top10_boxplot.json";
-      vegaEmbed('#top10_boxplot', spec3).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+        var spec5 = "js/horizontal_bar.json";
+        vegaEmbed('#horizontal_bar', spec5).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
 
-      var spec4 = "js/selected_country_boxplot.json";
-      vegaEmbed('#selected_country_boxplot', spec4).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+        d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
+            const width = 600;
+            const height = 300;
 
-      var spec5 = "js/horizontal_bar.json";
-      vegaEmbed('#horizontal_bar', spec5).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+            const fontSizeScale = d3.scaleLinear()
+                .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)])
+                .range([10, 100]);
 
-      // var spec6 = "js/word_cloud.json";
-      // vegaEmbed('#word_cloud', spec6).then(function(result) {
-      //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      // }).catch(console.error);
+            const layout = d3.layout.cloud()
+                .size([width, height])
+                .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size), occurrences: d.size })))
+                .padding(5)
+                .rotate(() => Math.random() > 0.5 ? 0 : 90)
+                .fontSize(d => d.size)
+                .on("end", draw);
 
-      // word-cloud.js
-      d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
-        const width = 800;
-        const height = 400;
+            layout.start();
 
-        // Create a scale for font sizes (adjusted range)
-        const fontSizeScale = d3.scaleLinear()
-            .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)]) // Keep original 'size' for scaling
-            .range([10, 80]);
+            const tooltip = d3.select("body").append("div")
+                .style("position", "absolute")
+                .style("background-color", "lightgrey")
+                .style("border", "1px solid grey")
+                .style("padding", "5px")
+                .style("border-radius", "3px")
+                .style("opacity", 0)
+                .style("pointer-events", "none");
 
-        // Create the layout for the word cloud
-        const layout = d3.layout.cloud()
-            .size([width, height])
-            // Map original 'size' to 'occurrences' for tooltip and use scaled 'size' for font size
-            .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size), occurrences: d.size })))
-            .padding(5)
-            .rotate(() => Math.random() > 0.5 ? 0 : 90)
-            .fontSize(d => d.size)
-            .on("end", draw);
+            function draw(words) {
+                d3.select("#word_cloud").selectAll("*").remove();
 
-        layout.start();
+                const svg = d3.select("#word_cloud")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-        // Create a tooltip div
-        const tooltip = d3.select("body").append("div")
-            .style("position", "absolute")
-            .style("background-color", "lightgrey")
-            .style("border", "1px solid grey")
-            .style("padding", "5px")
-            .style("border-radius", "3px")
-            .style("opacity", 0)
-            .style("pointer-events", "none"); // Make it not interfere with mouse events
+                const wordElements = svg.selectAll("text")
+                    .data(words)
+                    .enter().append("text")
+                    .style("font-size", d => d.size + "px")
+                    .style("fill", (d, i) => d3.schemeCategory10[i % 10])
+                    .attr("text-anchor", "middle")
+                    .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+                    .text(d => d.text);
 
-        function draw(words) {
-            d3.select("#word_cloud").selectAll("*").remove(); // Clear previous content
-
-            const svg = d3.select("#word_cloud")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height)
-                .append("g")
-                .attr("transform", `translate(${width / 2}, ${height / 2})`);
-
-            const wordElements = svg.selectAll("text")
-                .data(words)
-                .enter().append("text")
-                .style("font-size", d => d.size + "px")
-                .style("fill", (d, i) => d3.schemeCategory10[i % 10])
-                .attr("text-anchor", "middle")
-                .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
-                .text(d => d.text);
-
-            // Add tooltips on hover using a div
-            wordElements
-                .on("mouseover", function(event, d) {
-                    tooltip.transition()
-                        .duration(200)
-                        .style("opacity", 0.9);
-                    // Show original 'occurrences' (before scaling)
-                    tooltip.html(`Cause: ${d.text}<br>Occurrences: ${d.occurrences}`)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 15) + "px");
-                })
-                .on("mousemove", function(event) {
-                    tooltip.style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 15) + "px");
-                })
-                .on("mouseout", function() {
-                    tooltip.transition()
-                        .duration(200)
-                        .style("opacity", 0);
-                });
-        }
-    }).catch(function(error) {
-        console.error('Error loading the data:', error);
-    });
-
+                wordElements
+                    .on("mouseover", function(event, d) {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", 0.9);
+                        tooltip.html(`Cause: ${d.text}<br>Occurrences: ${d.occurrences}`)
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 15) + "px");
+                    })
+                    .on("mousemove", function(event) {
+                        tooltip.style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 15) + "px");
+                    })
+                    .on("mouseout", function() {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", 0);
+                    });
+            }
+        }).catch(function(error) {
+            console.error('Error loading the data:', error);
+        });
     </script>
-
 </body>
 </html>

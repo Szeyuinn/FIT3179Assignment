@@ -16,7 +16,7 @@ allCountries_df['isTop10'] = False
 merged_df = pd.concat([top10_df, allCountries_df])
 
 # Save the merged dataframe to a new CSV
-merged_csv_path = "/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/merged_runup.csv.csv"
+merged_csv_path = "/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/merged_runup_data.csv"
 merged_df.to_csv(merged_csv_path, index=False)
 
 print("Merged dataset saved to", merged_csv_path)

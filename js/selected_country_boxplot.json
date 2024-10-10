@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Box plot showing Runup Height for user-selected countries.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/cleaned_data.csv"
+    },
+    "mark": {
+      "type": "boxplot",
+      "extent": "min-max"
+    },
+    "params": [
+      {
+        "name": "selectedCountry",
+        "value": "",
+        "bind": {
+          "input": "select",
+          "options": [
+            "", "MALAYSIA", "AUSTRALIA", "MALDIVES", "PHILIPPINES", "FRANCE"
+          ],
+          "name": "Select Country: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "datum.COUNTRY == selectedCountry"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "COUNTRY",
+        "type": "nominal",
+        "title": "Country",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "RUNUP_HT",
+        "type": "quantitative",
+        "title": "Runup Height (meters)",
+        "scale": {
+        "domain": [0, 90] 
+      }
+      },
+      "tooltip": [
+        {"field": "RUNUP_HT", "type": "quantitative"}
+      ]
+    }
+  }
+  

@@ -19,7 +19,9 @@
 
     <div id="boxplot"></div>
 
-    <div id="top10boxplot"></div>
+    <div id="top10_boxplot"></div>
+
+    <div id="selected_country_boxplot"></div>
 
     <!-- <div id="debug_map"></div> -->
 
@@ -40,10 +42,10 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      // var spec3 = "js/debug_map.json";
-      // vegaEmbed('#debug_map', spec3).then(function(result) {
-      //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      // }).catch(console.error);
+      var spec4 = "js/selected_country_boxplot.json";
+      vegaEmbed('#selected_country_boxplot', spec4).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
 
     </script>
     

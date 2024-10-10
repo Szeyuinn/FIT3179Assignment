@@ -65,44 +65,62 @@
 
       // word-cloud.js
       d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
-          const width = 800;
-          const height = 400;
+        const width = 800;
+        const height = 400;
 
-          // Create a color scale
-          const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        // Create a scale for font sizes (slightly reduced maximum size)
+        const fontSizeScale = d3.scaleLinear()
+            .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)])
+            .range([10, 80]); // Adjusted range to better handle large words
 
-          // Create the layout for the word cloud
-          const layout = d3.layout.cloud()
-              .size([width, height])
-              .words(data.map(d => ({ text: d.text, size: d.size })))
-              .padding(5)
-              .rotate(() => Math.floor(Math.random() * 2) * 90) // Randomly rotate words
-              .fontSize(d => d.size) // Size of the words
-              .on("end", draw);
+        // Create the layout for the word cloud
+        const layout = d3.layout.cloud()
+            .size([width, height])
+            .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size) })))
+            .padding(5)  // Adjust padding to better fit words
+            .rotate(() => Math.random() > 0.5 ? 0 : 90) // Randomly rotate words by 0 or 90 degrees
+            .fontSize(d => d.size)
+            .on("end", draw);
 
-          // Start the layout
-          layout.start();
+        // Start the layout
+        layout.start();
 
-          // Draw the word cloud
-          function draw(words) {
-              d3.select("#word_cloud").selectAll("*").remove(); // Clear previous content
+        // Draw the word cloud
+        function draw(words) {
+            d3.select("#word_cloud").selectAll("*").remove(); // Clear previous content
 
-              d3.select("#word_cloud")
-                  .append("g")
-                  .attr("transform", `translate(${width / 2}, ${height / 2})`)
-                  .selectAll("text")
-                  .data(words)
-                  .enter().append("text")
-                  .style("font-size", d => d.size + "px")
-                  .style("fill", (d, i) => colorScale(i))
-                  .attr("text-anchor", "middle")
-                  .attr("class", "word")
-                  .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
-                  .text(d => d.text);
-          }
-      }).catch(function(error) {
-          console.error('Error loading the data:', error);
-      });
+            const svg = d3.select("#word_cloud")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+            const wordElements = svg.selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", d => d.size + "px")
+                .style("fill", (d, i) => d3.schemeCategory10[i % 10]) // Use a color scheme
+                .attr("text-anchor", "middle")
+                .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+                .text(d => d.text);
+
+            // Add tooltips on hover
+            wordElements
+                .on("mouseover", function(event, d) {
+                    d3.select(this)
+                        .style("cursor", "pointer")
+                        .append("title")
+                        .text(`Cause: ${d.text}, Size: ${d.size}`);
+                })
+                .on("mouseout", function() {
+                    d3.select(this).select("title").remove();
+                });
+        }
+    }).catch(function(error) {
+        console.error('Error loading the data:', error);
+    });
+
 
     </script>
 

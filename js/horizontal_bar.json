@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/cleaned_data.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "sum",
+            "field": "DEATHS",  
+            "as": "total_deaths"
+          }
+        ],
+        "groupby": ["COUNTRY"]
+      },
+      {
+        "filter": "datum.total_deaths != null" 
+      },
+      {
+        "filter": "datum.total_deaths > 0" 
+      },
+      {
+        "window": [
+          {
+            "op": "rank",
+            "as": "rank"
+          }
+        ],
+        "sort": [
+          {"field": "total_deaths", "order": "descending"}
+        ]
+      },
+      {
+        "filter": "datum.rank <= 10" 
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "COUNTRY",
+        "type": "ordinal",
+        "title": "Country",
+        "sort": "-x" 
+      },
+      "x": {
+        "field": "total_deaths",
+        "type": "quantitative",
+        "title": "Total Deaths"
+      },
+      "color": {
+        "field": "COUNTRY",
+        "type": "nominal",
+        "legend": {"title": "Country"}
+      },
+      "tooltip": [
+        {"field": "COUNTRY", "title": "Country"},
+        {"field": "total_deaths", "title": "Total Deaths"}
+      ]
+    },
+    "config": {
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    },
+    "height": 400,  
+    "width": 600   
+  }
+  

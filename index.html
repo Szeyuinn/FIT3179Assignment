@@ -7,6 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.js"></script>
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="styles.css" media="all">
@@ -17,13 +19,17 @@
     <!-- Choropleth Map Container -->
     <div id="choropleth_map"></div>
 
-    <div id="boxplot"></div>
+    <!-- <div id="boxplot"></div> -->
 
     <div id="top10_boxplot"></div>
 
     <div id="selected_country_boxplot"></div>
 
-    <!-- <div id="debug_map"></div> -->
+    <div id="horizontal_bar"></div>
+
+    <div id="word_cloud"></div>
+
+    <svg id="word-cloud" width="800" height="400"></svg>  
 
     <script type="text/javascript">
 
@@ -32,10 +38,10 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      var spec2 = "js/boxplot.json";
-      vegaEmbed('#boxplot', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+      // var spec2 = "js/boxplot.json";
+      // vegaEmbed('#boxplot', spec2).then(function(result) {
+      //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      // }).catch(console.error);
 
       var spec3 = "js/top10_boxplot.json";
       vegaEmbed('#top10_boxplot', spec3).then(function(result) {
@@ -47,7 +53,58 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
+      var spec5 = "js/horizontal_bar.json";
+      vegaEmbed('#horizontal_bar', spec5).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+      var spec6 = "js/word_cloud.json";
+      vegaEmbed('#word_cloud', spec6).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+      // word-cloud.js
+      d3.json('/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/cleaned_causes.json').then(function(data) {
+          const width = 800;
+          const height = 400;
+
+          // Create a color scale
+          const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+          // Create the layout for the word cloud
+          const layout = d3.layout.cloud()
+              .size([width, height])
+              .words(data.map(d => ({ text: d.text, size: d.size })))
+              .padding(5)
+              .rotate(() => Math.floor(Math.random() * 2) * 90) // Randomly rotate words
+              .fontSize(d => d.size) // Size of the words
+              .on("end", draw);
+
+          // Start the layout
+          layout.start();
+
+          // Draw the word cloud
+          function draw(words) {
+              d3.select("#word-cloud").selectAll("*").remove(); // Clear previous content
+
+              d3.select("#word-cloud")
+                  .append("g")
+                  .attr("transform", `translate(${width / 2}, ${height / 2})`)
+                  .selectAll("text")
+                  .data(words)
+                  .enter().append("text")
+                  .style("font-size", d => d.size + "px")
+                  .style("fill", (d, i) => colorScale(i))
+                  .attr("text-anchor", "middle")
+                  .attr("class", "word")
+                  .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+                  .text(d => d.text);
+          }
+      }).catch(function(error) {
+          console.error('Error loading the data:', error);
+      });
+
     </script>
-    
+
 </body>
 </html>

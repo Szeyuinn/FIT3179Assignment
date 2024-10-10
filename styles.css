@@ -22,3 +22,15 @@
 	left: 100px;
 	right: 100px;
 }
+#horizontal_bar {
+	top:10px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+}
+#word_cloud {
+	top:10px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+}

@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/cleaned_data.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.CAUSE != null && datum.CAUSE != ''" 
+      },
+      {
+        "aggregate": [
+          {
+            "op": "count",
+            "as": "count"
+          }
+        ],
+        "groupby": ["CAUSE"] 
+      },
+      {
+        "filter": "datum.count > 0" 
+      }
+    ],
+    "mark": "text",  
+    "encoding": {
+      "text": {
+        "field": "CAUSE",
+        "type": "nominal",
+        "title": "Cause"
+      },
+      "size": {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Frequency",
+        "scale": {"range": [10, 100]}  
+      },
+      "color": {
+        "field": "count",
+        "type": "quantitative",
+        "legend": {"title": "Frequency"}
+      },
+      "tooltip": [
+        {"field": "CAUSE", "title": "Cause"},
+        {"field": "count", "title": "Count"}
+      ],
+      "x": {
+        "field": "count",
+        "type": "quantitative",
+        "axis": null  
+      },
+      "y": {
+        "field": "count",
+        "type": "quantitative",
+        "axis": null  
+      }
+    },
+    "config": {
+      "axis": {"labelFontSize": 12, "titleFontSize": 14},
+      "text": {"fontSize": 14} 
+    },
+    "height": 400,  
+    "width": 600   
+  }
+  

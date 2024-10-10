@@ -68,24 +68,33 @@
         const width = 800;
         const height = 400;
 
-        // Create a scale for font sizes (slightly reduced maximum size)
+        // Create a scale for font sizes (adjusted range)
         const fontSizeScale = d3.scaleLinear()
-            .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)])
-            .range([10, 80]); // Adjusted range to better handle large words
+            .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)]) // Keep original 'size' for scaling
+            .range([10, 80]);
 
         // Create the layout for the word cloud
         const layout = d3.layout.cloud()
             .size([width, height])
-            .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size) })))
-            .padding(5)  // Adjust padding to better fit words
-            .rotate(() => Math.random() > 0.5 ? 0 : 90) // Randomly rotate words by 0 or 90 degrees
+            // Map original 'size' to 'occurrences' for tooltip and use scaled 'size' for font size
+            .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size), occurrences: d.size })))
+            .padding(5)
+            .rotate(() => Math.random() > 0.5 ? 0 : 90)
             .fontSize(d => d.size)
             .on("end", draw);
 
-        // Start the layout
         layout.start();
 
-        // Draw the word cloud
+        // Create a tooltip div
+        const tooltip = d3.select("body").append("div")
+            .style("position", "absolute")
+            .style("background-color", "lightgrey")
+            .style("border", "1px solid grey")
+            .style("padding", "5px")
+            .style("border-radius", "3px")
+            .style("opacity", 0)
+            .style("pointer-events", "none"); // Make it not interfere with mouse events
+
         function draw(words) {
             d3.select("#word_cloud").selectAll("*").remove(); // Clear previous content
 
@@ -100,27 +109,35 @@
                 .data(words)
                 .enter().append("text")
                 .style("font-size", d => d.size + "px")
-                .style("fill", (d, i) => d3.schemeCategory10[i % 10]) // Use a color scheme
+                .style("fill", (d, i) => d3.schemeCategory10[i % 10])
                 .attr("text-anchor", "middle")
                 .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
                 .text(d => d.text);
 
-            // Add tooltips on hover
+            // Add tooltips on hover using a div
             wordElements
                 .on("mouseover", function(event, d) {
-                    d3.select(this)
-                        .style("cursor", "pointer")
-                        .append("title")
-                        .text(`Cause: ${d.text}, Size: ${d.size}`);
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+                    // Show original 'occurrences' (before scaling)
+                    tooltip.html(`Cause: ${d.text}<br>Occurrences: ${d.occurrences}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 15) + "px");
+                })
+                .on("mousemove", function(event) {
+                    tooltip.style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 15) + "px");
                 })
                 .on("mouseout", function() {
-                    d3.select(this).select("title").remove();
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0);
                 });
         }
     }).catch(function(error) {
         console.error('Error loading the data:', error);
     });
-
 
     </script>
 

@@ -17,7 +17,7 @@ file_path = '/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/cleaned_d
 data = pd.read_csv(file_path)
 
 # Filter the dataset to include only years greater than or equal to 1800
-data = data[data['YEAR'] >= 1800]
+data = data[data['YEAR'] >= 2000]
 
 # Create a mapping dictionary for country name replacements
 country_mapping = {
@@ -58,7 +58,7 @@ missing_countries = all_countries - data_countries
 
 # Add missing countries with zero occurrences for each year in the range
 for country in missing_countries:
-    for year in range(1800, 2024):  # Assuming the range is from 1800 to 2024
+    for year in range(2000, 2014):  # Assuming the range is from 1800 to 2024
         missing_rows.append({
             'COUNTRY': country.title(),  # Match the title case format
             'YEAR': year,

@@ -1,42 +1,50 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "https://path-to-your-dataset.json"
+      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/causes.csv"
     },
     "transform": [
       {
-        "aggregate": [{"op": "sum", "field": "size", "as": "total_size"}],
-        "groupby": ["category"] 
+        "flatten": ["text"],
+        "as": ["category"]
+      },
+      {
+        "partition": {
+          "field": "size",
+          "sort": {"field": "size", "order": "descending"},
+          "size": [{"signal": "width"}, {"signal": "height"}]
+        }
       }
     ],
-    "mark": "rect",
+    "mark": {"type": "rect", "tooltip": true},
     "encoding": {
       "x": {
         "field": "x0",
         "type": "quantitative",
         "axis": null
       },
-      "x2": {"field": "x1"},
+      "x2": {
+        "field": "x1"
+      },
       "y": {
         "field": "y0",
         "type": "quantitative",
         "axis": null
       },
-      "y2": {"field": "y1"},
+      "y2": {
+        "field": "y1"
+      },
       "color": {
         "field": "category",
         "type": "nominal",
-        "legend": {"title": "Cause Category"}
+        "legend": null
       },
       "tooltip": [
-        {"field": "category", "title": "Cause"},
-        {"field": "total_size", "title": "Occurrences"}
+        {"field": "text", "title": "Cause"},
+        {"field": "size", "title": "Occurrences"}
       ]
     },
-    "height": 400,
-    "width": 500,
-    "config": {
-      "view": {"stroke": "transparent"}
-    }
+    "height": 500,
+    "width": 500
   }
   

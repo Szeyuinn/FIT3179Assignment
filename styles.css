@@ -17,7 +17,19 @@ body {
 
 .page-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.page-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 45px;
+}
+
+.page-description{
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: left;
+    font-size: 16px;
+    font-style: italic;
 }
 
 .visual-section {
@@ -28,10 +40,15 @@ body {
 
 .visual-section h2 {
     margin-bottom: 20px;
+    text-align: left;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 24px;
 }
 
 .visual-section p {
     margin-bottom: 20px;
+    text-align: left;
+    font-size: 15px;
 }
 
 .chart-container {
@@ -54,8 +71,21 @@ body {
     padding-left: 30px;
 }
 
+.map-description{
+    text-align: left;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.map-note{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font:bold;
+    color: red;
+}
+
 .top10 {
-    width: 700px;
+    width: 650px;
     height: 600px;
     padding-top: 60px;
 }
@@ -69,18 +99,14 @@ body {
 .top10-description {
     width: 30%; /* Adjust width as needed */
     text-align: left; /* Align text to the left */
-    margin-top: 200px;
+    margin-top: 120px;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
 .top10-chart-container {
     width: 65%; /* Adjust width as needed */
 }
 
-
-.selected-country {
-    width: 500px;
-    height: 400px;
-}
 
 .horizontal-bar {
     width: 700px;
@@ -102,16 +128,13 @@ body {
 .horizontal-bar-description {
     width: 30%; /* Adjust width as needed */
     text-align: left; /* Align text to the left */
-    margin-top: 200px;
+    margin-top: 150px;
     margin-left: 100px;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
-
-.word-cloud {
-    width: 1000px;
-    height: 600px;
-    margin: 0 auto;
-    align-items: center; 
+.pie-description{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Styles for Combined Boxplot */

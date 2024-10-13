@@ -19,8 +19,9 @@
 
         <!-- Page Title and Description -->
         <div class="page-header">
-            <h1 class="serif">Tsunami Impacts Around the World</h1>
-            <p>This visualization explores the dramatic impacts of tsunamis across various countries, using diverse data representations such as choropleth maps, boxplots, and word clouds to illustrate the regions most affected by these natural disasters.</p>
+            <h1 class="page-title">Tsunami Impacts Around the World</h1>
+            <p class="page-description"> Discover the world of tsunamis like never before! This page dives deep into the awe-inspiring, earth-shaking events that have reshaped coastlines and lives over the years. With rich visuals, you’ll explore the hidden patterns of destruction and the forces behind them, as we unravel the data with a fresh, immersive perspective.</p>
+            <p class="page-description">Buckle up, because the ocean's fury is about to take center stage!</p>
         </div>
 
         <!-- Choropleth Map Section -->
@@ -33,7 +34,9 @@
         <!-- Debug Map Section -->
         <div class="visual-section">
             <h2>Tsunami Impact by Year (2000-2014)</h2>
-            <p>Note: There are no tsunami occurrences in the years 2001 and 2005.</p>
+            <p class="map-description">Let’s start with a splash—our world map spills the secrets of tsunami occurrences between 2000 and 2014. Each year paints a different picture of devastation, with certain countries darkening the map more than others. </p>
+            <p class="map-description">You’ll notice Chile in 2014 glowing the most significant—thanks to that massive 8.2 magnitude quake shaking up the Pacific Rim. While some areas are relatively calm, don’t be fooled—these forces of nature can strike anywhere, anytime. This map is your guide to understanding where and when these oceanic monsters made their mark.</p>
+            <p class="map-note">Note: There are no tsunami occurrences in the years 2001 and 2005.</p>
             <div id="debug_map" class="chart-container choropleth"></div>
         </div>
 
@@ -42,7 +45,8 @@
             <h2>Top 10 Country with Highest Tsunami Runup Heights</h2>
             <div class="top10-comparison">
                 <div class="top10-description">
-                    <p>Explore how tsunami runup heights vary by country. This comparison highlights the top 10 most affected countries offering insights into the scale of impact.</p>
+                    <p>Think of this boxplot as a who's who of extreme tsunami waves. The taller the box, the more jaw-dropping the runup height. These aren’t just gentle waves lapping the shore—this is water on a mission, climbing cliffs and submerging cities. </p>
+                    <p>From Chile to USA, these countries faced the highest, most formidable tsunamis. It's like looking at the leaderboard of natural power, where the ocean's fury takes top spot.</p>
                     <p>The peak of the line signifies the maximum tsunami height that country has experienced, the line in the box signifies the overall heights of it looking into the past years (since 1800).</p>
                 </div>
                 <div class="top10-chart-container">
@@ -67,26 +71,28 @@
                     <div id="horizontal_bar" class="chart-container horizontal-bar"></div>
                 </div>
                 <div class="horizontal-bar-description">
-                    <p>This horizontal bar chart illustrates the primary causes of tsunamis around the globe. Each bar represents the frequency of various geological events that lead to tsunamis, shedding light on the most common triggers and the need for monitoring such natural phenomena.</p>
+                    <p>Numbers don't lie, but they do shock. This chart lays out the countries where tsunamis didn’t just hit—they devastated. </p>
+                    <p>From the iconic Indian Ocean Tsunami to the deadly waves across Asia, the chart lets the data tell the story of immense loss. </p>
+                    <p>The longer the bar, the more lives were lost in these heartbreaking events. It’s a stark, yet necessary reminder of nature's potential for tragedy.</p>
                 </div>
             </div>
         </div>
 
         <!-- Word Cloud Section -->
-        <div class="visual-section">
+        <!-- <div class="visual-section">
             <h2>Tsunami Causes Word Cloud</h2>
             <p>This visually striking word cloud represents the most common causes of tsunamis, where larger words indicate more frequent causes, making it easy to identify major contributors at a glance.</p>
             <div id="word_cloud" class="chart-container word-cloud"></div>
-        </div>
+        </div> -->
 
         <div class="visual-section">
             <h2>Tsunami Causes</h2>
-            <p>This visually striking word cloud represents the most common causes of tsunamis, where larger words indicate more frequent causes, making it easy to identify major contributors at a glance.</p>
+            <p class="pie-description">Ever wonder what triggers these mighty waves? This pie chart slices it up for you.</p>
+            <p class="pie-description">Earthquakes take the biggest slice of the pie — no surprise there. But look closely, and you’ll see that other causes like volcanic eruptions and landslides play a part too. It's a visual representation of the science behind the splash. Each piece of the pie reminds us that tsunamis have a variety of origins, all with the power to reshape the world as we know it.</p>
             <div id="pie_chart" class="chart-container word-cloud"></div>
         </div>
 
     </div>
-
     <script type="text/javascript">
         // var spec1 = "js/choropleth_map.json";
         // vegaEmbed('#choropleth_map', spec1).then(function(result) {
@@ -118,74 +124,74 @@
             // Access the Vega view instance as result.view
         }).catch(console.error);
 
-        d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
-            const width = 600;
-            const height = 300;
+        // d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {
+        //     const width = 600;
+        //     const height = 300;
 
-            const fontSizeScale = d3.scaleLinear()
-                .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)])
-                .range([10, 100]);
+        //     const fontSizeScale = d3.scaleLinear()
+        //         .domain([d3.min(data, d => d.size), d3.max(data, d => d.size)])
+        //         .range([10, 100]);
 
-            const layout = d3.layout.cloud()
-                .size([width, height])
-                .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size), occurrences: d.size })))
-                .padding(5)
-                .rotate(() => Math.random() > 0.5 ? 0 : 90)
-                .fontSize(d => d.size)
-                .on("end", draw);
+        //     const layout = d3.layout.cloud()
+        //         .size([width, height])
+        //         .words(data.map(d => ({ text: d.text, size: fontSizeScale(d.size), occurrences: d.size })))
+        //         .padding(5)
+        //         .rotate(() => Math.random() > 0.5 ? 0 : 90)
+        //         .fontSize(d => d.size)
+        //         .on("end", draw);
 
-            layout.start();
+        //     layout.start();
 
-            const tooltip = d3.select("body").append("div")
-                .style("position", "absolute")
-                .style("background-color", "lightgrey")
-                .style("border", "1px solid grey")
-                .style("padding", "5px")
-                .style("border-radius", "3px")
-                .style("opacity", 0)
-                .style("pointer-events", "none");
+        //     const tooltip = d3.select("body").append("div")
+        //         .style("position", "absolute")
+        //         .style("background-color", "lightgrey")
+        //         .style("border", "1px solid grey")
+        //         .style("padding", "5px")
+        //         .style("border-radius", "3px")
+        //         .style("opacity", 0)
+        //         .style("pointer-events", "none");
 
-            function draw(words) {
-                d3.select("#word_cloud").selectAll("*").remove();
+        //     function draw(words) {
+        //         d3.select("#word_cloud").selectAll("*").remove();
 
-                const svg = d3.select("#word_cloud")
-                    .append("svg")
-                    .attr("width", width)
-                    .attr("height", height)
-                    .append("g")
-                    .attr("transform", `translate(${width / 2}, ${height / 2})`);
+        //         const svg = d3.select("#word_cloud")
+        //             .append("svg")
+        //             .attr("width", width)
+        //             .attr("height", height)
+        //             .append("g")
+        //             .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-                const wordElements = svg.selectAll("text")
-                    .data(words)
-                    .enter().append("text")
-                    .style("font-size", d => d.size + "px")
-                    .style("fill", (d, i) => d3.schemeCategory10[i % 10])
-                    .attr("text-anchor", "middle")
-                    .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
-                    .text(d => d.text);
+        //         const wordElements = svg.selectAll("text")
+        //             .data(words)
+        //             .enter().append("text")
+        //             .style("font-size", d => d.size + "px")
+        //             .style("fill", (d, i) => d3.schemeCategory10[i % 10])
+        //             .attr("text-anchor", "middle")
+        //             .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+        //             .text(d => d.text);
 
-                wordElements
-                    .on("mouseover", function(event, d) {
-                        tooltip.transition()
-                            .duration(200)
-                            .style("opacity", 0.9);
-                        tooltip.html(`Cause: ${d.text}<br>Occurrences: ${d.occurrences}`)
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 15) + "px");
-                    })
-                    .on("mousemove", function(event) {
-                        tooltip.style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 15) + "px");
-                    })
-                    .on("mouseout", function() {
-                        tooltip.transition()
-                            .duration(200)
-                            .style("opacity", 0);
-                    });
-            }
-        }).catch(function(error) {
-            console.error('Error loading the data:', error);
-        });
+        //         wordElements
+        //             .on("mouseover", function(event, d) {
+        //                 tooltip.transition()
+        //                     .duration(200)
+        //                     .style("opacity", 0.9);
+        //                 tooltip.html(`Cause: ${d.text}<br>Occurrences: ${d.occurrences}`)
+        //                     .style("left", (event.pageX + 10) + "px")
+        //                     .style("top", (event.pageY - 15) + "px");
+        //             })
+        //             .on("mousemove", function(event) {
+        //                 tooltip.style("left", (event.pageX + 10) + "px")
+        //                     .style("top", (event.pageY - 15) + "px");
+        //             })
+        //             .on("mouseout", function() {
+        //                 tooltip.transition()
+        //                     .duration(200)
+        //                     .style("opacity", 0);
+        //             });
+        //     }
+        // }).catch(function(error) {
+        //     console.error('Error loading the data:', error);
+        // });
     </script>
 </body>
 </html>

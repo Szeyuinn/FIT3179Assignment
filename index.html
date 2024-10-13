@@ -82,7 +82,7 @@
         <div class="visual-section">
             <h2>Tsunami Causes</h2>
             <p>This visually striking word cloud represents the most common causes of tsunamis, where larger words indicate more frequent causes, making it easy to identify major contributors at a glance.</p>
-            <div id="tree_map" class="chart-container word-cloud"></div>
+            <div id="pie_chart" class="chart-container word-cloud"></div>
         </div>
 
     </div>
@@ -113,8 +113,8 @@
             // Access the Vega view instance as result.view
         }).catch(console.error);
 
-        var spec6 = "js/tree_map.json";
-        vegaEmbed('#tree_map', spec6).then(function(result) {
+        var spec6 = "js/pie_chart.json";
+        vegaEmbed('#pie_chart', spec6).then(function(result) {
             // Access the Vega view instance as result.view
         }).catch(console.error);
 

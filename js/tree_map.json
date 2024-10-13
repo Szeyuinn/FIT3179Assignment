@@ -1,50 +1,20 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Pie chart representing the causes of tsunamis and their respective sizes.",
+    "width": 700,
+    "height": 500,
     "data": {
-      "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/causes.csv"
+        "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/causes.csv"
     },
-    "transform": [
-      {
-        "flatten": ["text"],
-        "as": ["category"]
-      },
-      {
-        "partition": {
-          "field": "size",
-          "sort": {"field": "size", "order": "descending"},
-          "size": [{"signal": "width"}, {"signal": "height"}]
-        }
-      }
-    ],
-    "mark": {"type": "rect", "tooltip": true},
+    "mark": "arc",
     "encoding": {
-      "x": {
-        "field": "x0",
-        "type": "quantitative",
-        "axis": null
-      },
-      "x2": {
-        "field": "x1"
-      },
-      "y": {
-        "field": "y0",
-        "type": "quantitative",
-        "axis": null
-      },
-      "y2": {
-        "field": "y1"
-      },
-      "color": {
-        "field": "category",
-        "type": "nominal",
-        "legend": null
-      },
+      "theta": {"field": "size", "type": "quantitative", "title": "Size"},
+      "color": {"field": "text", "type": "nominal", "title": "Cause"},
       "tooltip": [
         {"field": "text", "title": "Cause"},
-        {"field": "size", "title": "Occurrences"}
+        {"field": "size", "title": "Size"}
       ]
     },
-    "height": 500,
-    "width": 500
+    "view": {"stroke": null}
   }
   

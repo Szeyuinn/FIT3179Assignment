@@ -9,12 +9,25 @@
     "mark": "arc",
     "encoding": {
       "theta": {"field": "size", "type": "quantitative", "title": "Size"},
-      "color": {"field": "text", "type": "nominal", "title": "Cause"},
+      "color": {
+        "field": "text", 
+        "type": "nominal", 
+        "title": "Cause",
+        "scale": {
+          "scheme":"tableau20"
+        },
+        "legend": {
+          "labelFontSize": 12,
+          "symbolSize": 200,
+          "titleFontSize": 14
+        }
+      },
       "tooltip": [
         {"field": "text", "title": "Cause"},
         {"field": "size", "title": "Size"}
       ]
     },
+    
     "view": {"stroke": null}
   }
   

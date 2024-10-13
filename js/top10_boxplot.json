@@ -25,7 +25,8 @@
       "color": {
         "field": "COUNTRY",
         "type": "nominal",
-        "legend": null
+        "legend": null,
+        "scale":{"scheme":"tableau20"}
       }
     },
     "config": {

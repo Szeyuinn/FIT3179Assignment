@@ -19,62 +19,92 @@
 
         <!-- Page Title and Description -->
         <div class="page-header">
-            <h1>Tsunami Impacts Around the World</h1>
-            <p>This visualization compares the impact of tsunamis across different countries, using various data representations like a choropleth map, boxplots, and word clouds to highlight the top-affected regions.</p>
+            <h1 class="serif">Tsunami Impacts Around the World</h1>
+            <p>This visualization explores the dramatic impacts of tsunamis across various countries, using diverse data representations such as choropleth maps, boxplots, and word clouds to illustrate the regions most affected by these natural disasters.</p>
         </div>
 
         <!-- Choropleth Map Section -->
-        <div class="visual-section">
+        <!-- <div class="visual-section">
             <h2>Tsunami Impact by Country (Choropleth Map)</h2>
-            <p>This map shows the severity of tsunami impacts by country, with darker colors representing higher impacts in terms of damage and fatalities.</p>
+            <p>This map vividly depicts the severity of tsunami impacts by country, with deeper colors representing higher levels of damage and fatalities, allowing for quick visual assessment of risk areas.</p>
             <div id="choropleth_map" class="chart-container choropleth"></div>
+        </div> -->
+
+        <!-- Debug Map Section -->
+        <div class="visual-section">
+            <h2>Tsunami Impact by Year (2000-2014)</h2>
+            <p>Note: There are no tsunami occurrences in the years 2001 and 2005.</p>
+            <div id="debug_map" class="chart-container choropleth"></div>
         </div>
 
         <!-- Boxplots Section for Top 10 vs Selected Country -->
         <div class="visual-section">
-            <h2>Comparison of Tsunami Runup Heights</h2>
-            <p>The following boxplots compare the top 10 tsunami-affected countries with the user-selected country, based on runup heights recorded during tsunamis.</p>
-            <div class="combined-boxplot">
-                <div id="top10_boxplot" class="chart-container top10"></div>
-                <div id="selected_country_boxplot" class="chart-container selected-country"></div>
+            <h2>Top 10 Country with Highest Tsunami Runup Heights</h2>
+            <div class="top10-comparison">
+                <div class="top10-description">
+                    <p>Explore how tsunami runup heights vary by country. This comparison highlights the top 10 most affected countries offering insights into the scale of impact.</p>
+                    <p>The peak of the line signifies the maximum tsunami height that country has experienced, the line in the box signifies the overall heights of it looking into the past years (since 1800).</p>
+                </div>
+                <div class="top10-chart-container">
+                    <div id="top10_boxplot" class="chart-container top10"></div>
+                </div>
             </div>
         </div>
 
+
+        <!-- Horizontal Bar Chart Section -->
+        <!-- <div class="visual-section">
+            <h2>Top 10 Deaths Caused by Tsunamis</h2>
+            <p>This bar chart presents the primary geological events that lead to tsunamis, clearly illustrating the most frequent causes and providing context for understanding their triggers.</p>
+            <div id="horizontal_bar" class="chart-container horizontal-bar"></div>
+        </div> -->
+
         <!-- Horizontal Bar Chart Section -->
         <div class="visual-section">
-            <h2>Top Causes of Tsunamis (Horizontal Bar Chart)</h2>
-            <p>This bar chart shows the most common causes of tsunamis around the world, highlighting the most frequent geological events leading to these disasters.</p>
-            <div id="horizontal_bar" class="chart-container horizontal-bar"></div>
+            <h2>Top 10 Deaths Caused by Tsunamis</h2>
+            <div class="horizontal-bar-comparison">
+                <div class="horizontal-bar-chart-container">
+                    <div id="horizontal_bar" class="chart-container horizontal-bar"></div>
+                </div>
+                <div class="horizontal-bar-description">
+                    <p>This horizontal bar chart illustrates the primary causes of tsunamis around the globe. Each bar represents the frequency of various geological events that lead to tsunamis, shedding light on the most common triggers and the need for monitoring such natural phenomena.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Word Cloud Section -->
         <div class="visual-section">
             <h2>Tsunami Causes Word Cloud</h2>
-            <p>This word cloud provides a visual representation of the most common causes of tsunamis, with larger words representing more frequent causes.</p>
+            <p>This visually striking word cloud represents the most common causes of tsunamis, where larger words indicate more frequent causes, making it easy to identify major contributors at a glance.</p>
             <div id="word_cloud" class="chart-container word-cloud"></div>
         </div>
 
     </div>
 
     <script type="text/javascript">
-        var spec1 = "js/choropleth_map.json";
-        vegaEmbed('#choropleth_map', spec1).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // var spec1 = "js/choropleth_map.json";
+        // vegaEmbed('#choropleth_map', spec1).then(function(result) {
+        //     // Access the Vega view instance as result.view
+        // }).catch(console.error);
+
+        var spec2 = "js/debug_map.json";
+        vegaEmbed('#debug_map', spec2).then(function(result) {
+            // Access the Vega view instance as result.view
         }).catch(console.error);
 
         var spec3 = "js/top10_boxplot.json";
         vegaEmbed('#top10_boxplot', spec3).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance as result.view
         }).catch(console.error);
 
-        var spec4 = "js/selected_country_boxplot.json";
-        vegaEmbed('#selected_country_boxplot', spec4).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec4 = "js/selected_country_boxplot.json";
+        // vegaEmbed('#selected_country_boxplot', spec4).then(function(result) {
+        //     // Access the Vega view instance as result.view
+        // }).catch(console.error);
 
         var spec5 = "js/horizontal_bar.json";
         vegaEmbed('#horizontal_bar', spec5).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance as result.view
         }).catch(console.error);
 
         d3.json('https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/cleaned_causes.json').then(function(data) {

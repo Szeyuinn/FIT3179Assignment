@@ -5,7 +5,7 @@
     "data": {
       "url": "https://raw.githubusercontent.com/Szeyuinn/FIT3179Assignment/refs/heads/main/data/runup_top10.csv"
     },
-    "title": "Run-up Heights by Top 10 Countries",
+    "description": "Run-up Heights by Top 10 Countries",
     "mark": {
       "type": "boxplot",
       "extent": "min-max"
@@ -25,10 +25,7 @@
       "color": {
         "field": "COUNTRY",
         "type": "nominal",
-        "legend": {
-            "title": "Country",
-            "orient": "left"
-        }
+        "legend": null
       }
     },
     "config": {

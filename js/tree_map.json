@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://path-to-your-dataset.json"
+    },
+    "transform": [
+      {
+        "aggregate": [{"op": "sum", "field": "size", "as": "total_size"}],
+        "groupby": ["category"] 
+      }
+    ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "x0",
+        "type": "quantitative",
+        "axis": null
+      },
+      "x2": {"field": "x1"},
+      "y": {
+        "field": "y0",
+        "type": "quantitative",
+        "axis": null
+      },
+      "y2": {"field": "y1"},
+      "color": {
+        "field": "category",
+        "type": "nominal",
+        "legend": {"title": "Cause Category"}
+      },
+      "tooltip": [
+        {"field": "category", "title": "Cause"},
+        {"field": "total_size", "title": "Occurrences"}
+      ]
+    },
+    "height": 400,
+    "width": 500,
+    "config": {
+      "view": {"stroke": "transparent"}
+    }
+  }
+  

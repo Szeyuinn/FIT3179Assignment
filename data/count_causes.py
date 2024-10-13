@@ -15,5 +15,5 @@ cause_counts.columns = ['text', 'size']
 # Display the cleaned dataset
 print(cause_counts)
 
-# Save the cleaned data as a JSON file
-cause_counts.to_json('cleaned_causes.json', orient='records')
+result_path = '/Users/szeyuin/Documents/FIT3179/FIT3179Assignment-1/data/causes.csv'
+cause_counts.to_csv(result_path, index=False)

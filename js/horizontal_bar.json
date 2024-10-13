@@ -51,7 +51,7 @@
       "color": {
         "field": "COUNTRY",
         "type": "nominal",
-        "legend": {"title": "Country"}
+        "legend": null
       },
       "tooltip": [
         {"field": "COUNTRY", "title": "Country"},
@@ -59,9 +59,9 @@
       ]
     },
     "config": {
-      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+      "axis": {"labelFontSize": 10, "titleFontSize": 12}
     },
     "height": 400,  
-    "width": 600   
+    "width": 500   
   }
   

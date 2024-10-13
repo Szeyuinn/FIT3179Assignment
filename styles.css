@@ -6,12 +6,13 @@ body {
 }
 
 .main-container {
-    max-width: 1200px; /* Restrict the page width to 900px to avoid horizontal scrolling */
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .page-header {
@@ -26,7 +27,7 @@ body {
 }
 
 .visual-section h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .visual-section p {
@@ -48,33 +49,79 @@ body {
 .choropleth {
     width: 1000px;
     height: 600px;
-}
-
-.combined-boxplot {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    margin-bottom: 10px;
+    align-items: center; 
+    padding-top: 70px;
+    padding-left: 30px;
 }
 
 .top10 {
-    width: 800px;
+    width: 700px;
     height: 600px;
+    padding-top: 60px;
+}
+.top10-comparison {
+    display: flex;
+    justify-content: space-between; /* Space between description and chart */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    margin-bottom: 20px; /* Space below the comparison section */
 }
 
+.top10-description {
+    width: 30%; /* Adjust width as needed */
+    text-align: left; /* Align text to the left */
+    margin-top: 200px;
+}
+
+.top10-chart-container {
+    width: 65%; /* Adjust width as needed */
+}
+
+
 .selected-country {
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 400px;
 }
 
 .horizontal-bar {
-    width: 900px;
-    height: 500px;
+    width: 700px;
+    height: 600px;
+    padding-top: 80px;
 }
 
+.horizontal-bar-comparison {
+    display: flex;
+    justify-content: space-between; /* Space between chart and description */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    margin-bottom: 20px; /* Space below the comparison section */
+}
+
+.horizontal-bar-chart-container {
+    width: 65%; /* Adjust width as needed */
+}
+
+.horizontal-bar-description {
+    width: 30%; /* Adjust width as needed */
+    text-align: left; /* Align text to the left */
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+
 .word-cloud {
-	padding-left: 50px;
-	padding-top: 100px;
-    width: 900px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    align-items: center; 
+}
+
+/* Styles for Combined Boxplot */
+.combined-boxplot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+/* General Styles */
+.serif {
+    font-family: 'Times New Roman', serif; 
 }
